@@ -52,3 +52,84 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+
+// === ระบบค้นหาและแสดงผลการ์ดแบบสมบูรณ์ ===
+const searchDatabase = [
+    { name: 'Grand Luxury Hotel Bangkok', type: 'โรงแรม', price: 2500, link: 'hotel.html', img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80' },
+    { name: 'Sea Breeze Resort Phuket', type: 'โรงแรม', price: 4200, link: 'hotel.html', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80' },
+    
+    // --- เพิ่มข้อมูลใหม่ตรงนี้ได้เลย ---
+    { name: 'Bangkok ➔ Chiang Mai Flight', type: 'ตั๋วเครื่องบิน', price: 1200, link: 'flight.html', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=500&q=80' },
+    { name: 'SUSHI OMAKASE Bangkok', type: 'ร้านอาหาร', price: 1500, link: 'restaurant.html', img: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=80' },
+    { name: 'Sea Breeze Resort Phuket', type: 'โรงแรม', price: 4200, link: 'hotel.html', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80' }
+
+];
+
+const searchForm = document.getElementById('searchForm');
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('search-results');
+
+if (searchForm) {
+    searchForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // ป้องกันหน้าเว็บรีเฟรช
+        
+        const keyword = searchInput ? searchInput.value.trim().toLowerCase() : "";
+        
+        if (!keyword) {
+            alert('กรุณากรอกคำค้นหาก่อนครับ');
+            return;
+        }
+
+        // กรองข้อมูลตามคำที่พิมพ์ (ค้นหาจากชื่อโรงแรมหรือประเภท)
+        const resultData = searchDatabase.filter(item => 
+            item.name.toLowerCase().includes(keyword) || item.type.toLowerCase().includes(keyword)
+        );
+
+        if (!searchResults) return;
+        searchResults.innerHTML = ''; // เคลียร์ผลลัพธ์เก่าทิ้ง
+        
+        if (resultData.length === 0) {
+            searchResults.innerHTML = `<div class="alert alert-warning text-center mt-3">ไม่พบข้อมูลที่ค้นหา</div>`;
+            return;
+        }
+
+        // สร้างการ์ด (Card) แสดงผล
+        let html = '<div class="row g-4" style="margin-top: 110px;">';
+        resultData.forEach(item => {
+            html += `
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                        <img src="${item.img}" class="card-img-top" style="height: 180px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <span class="badge bg-primary mb-2">${item.type}</span>
+                                <h5 class="card-title fw-bold">${item.name}</h5>
+                                <p class="text-success fw-bold">ราคาเริ่มต้น: ฿${item.price.toLocaleString()}</p>
+                            </div>
+                            <a href="${item.link}" class="btn btn-outline-primary w-100 mt-3 rounded-pill">ไปหน้าจอง</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        html += '</div>';
+        searchResults.innerHTML = html;
+    });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+    

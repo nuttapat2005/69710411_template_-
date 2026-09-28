@@ -11237,3 +11237,59 @@ body {
 }
 
 
+
+
+
+
+/*ช่องค้นหา */
+/* ตกแต่งกล่องฟอร์มหลัก */
+form[role="search"] {
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-radius: 50px; /* ทำขอบให้โค้งมนแบบแคปซูล */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); /* เพิ่มเงาให้ดูมีมิติ */
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    transition: all 0.3s ease;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ hover หรือฟอร์มกำลังใช้งาน */
+form[role="search"]:hover,
+form[role="search"]:focus-within {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+/* ตกแต่งช่อง Input ค้นหา */
+form[role="search"] .form-control {
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 15px;
+    font-size: 0.95rem;
+    color: #333333;
+}
+
+/* เอาเส้นขอบสีฟ้าเดิมของ Bootstrap ออกเวลากดพิมพ์ */
+form[role="search"] .form-control:focus {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+/* ตกแต่งปุ่ม Search */
+form[role="search"] .btn-outline-success {
+    border-radius: 30px; /* ทำปุ่มให้โค้งมนรับกับฟอร์ม */
+    padding: 6px 20px;
+    font-weight: 500;
+    border-color: #198754;
+    transition: all 0.2s ease-in-out;
+}
+
+/* เอฟเฟกต์เวลาเอาเมาส์ชี้ปุ่ม */
+form[role="search"] .btn-outline-success:hover {
+    background-color: #198754;
+    color: #ffffff;
+    transform: scale(1.02); /* ขยายขึ้นนิดหน่อยตอนชี้ */
+}

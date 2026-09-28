@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจองร้านอาหาร</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Prompt', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen">
+
+    <!-- Navbar -->
+    <header class="bg-orange-600 text-white shadow-md">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div>
+            <img class="img-fluid" src="img/gg3.png" alt="logo" width="120">
+        </div>
+            <nav class="space-x-3 md:space-x-4 text-sm md:text-base">
+                 <a href="index.html" class="font-medium hover:underline opacity-80">Home</a>
+                <a href="hotel.html" class="font-medium hover:underline opacity-80">จองโรงแรม</a>
+                <a href="flight.html" class="font-medium hover:underline opacity-80">จองตั๋วเครื่องบิน</a>
+                <a href="restaurant.html" class="font-medium hover:underline opacity-80">จองร้านอาหาร</a>
+                <button onclick="switchTab('my-bookings')" class="font-medium hover:underline opacity-80">ประวัติการจอง (<span id="booking-count">0</span>)</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <!-- แท็บค้นหาและจอง -->
+        <section id="tab-search" class="space-y-6">
+            <div class="bg-white p-6 rounded-2xl shadow-md grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">เลือกย่าน / ทำเลร้านอาหาร</label>
+                    <select id="search-dest" class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-orange-500 outline-none">
+                        <!-- เติมข้อมูลด้วย JS -->
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">วันที่ต้องการไปทาน</label>
+                    <input type="date" id="search-date" class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-orange-500 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">จำนวนคน</label>
+                    <input type="number" id="search-qty" min="1" value="2" class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-orange-500 outline-none">
+                </div>
+                <div>
+                    <button onclick="handleSearch()" class="w-full bg-orange-600 text-white font-semibold py-2.5 rounded-lg hover:bg-orange-700 transition shadow">ค้นหาร้านอาหาร</button>
+                </div>
+            </div>
+
+            <div id="search-results" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+        </section>
+
+        <!-- แท็บประวัติการจอง -->
+        <section id="tab-bookings" class="hidden space-y-6">
+            <h2 class="text-2xl font-bold text-gray-800">ประวัติการจองโต๊ะร้านอาหารของคุณ</h2>
+            <div id="bookings-list" class="space-y-4"></div>
+        </section>
+    </main>
+
+    <!-- Modal ยืนยันการจอง -->
+    <div id="payment-modal" class="fixed inset-0 bg-black/50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 space-y-4 shadow-xl">
+            <h3 class="text-xl font-bold text-gray-800">🍽️ ยืนยันการจองโต๊ะ</h3>
+            <div id="modal-details" class="bg-gray-50 p-4 rounded-xl text-sm space-y-2 border"></div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">ชื่อ-นามสกุล ผู้จองโต๊ะ</label>
+                <input type="text" id="customer-name" placeholder="กรอกชื่อของคุณ" class="w-full border rounded-lg p-2.5 focus:ring-2 focus:ring-orange-500 outline-none">
+            </div>
+            <div class="flex gap-3 pt-2">
+                <button onclick="closeModal()" class="w-1/2 bg-gray-200 text-gray-700 font-semibold py-2 rounded-lg hover:bg-gray-300 transition">ยกเลิก</button>
+                <button onclick="confirmBooking()" class="w-1/2 bg-orange-600 text-white font-semibold py-2 rounded-lg hover:bg-orange-700 transition shadow">ยืนยันการจอง</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const restaurantsData = [
+            { id: 'R1', name: 'SUSHI OMAKASE Premium Bangkok', location: 'กรุงเทพฯ', price: 1500, img: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=80' },
+            { id: 'R2', name: 'Beachfront Seafood BBQ Phuket', location: 'ภูเก็ต', price: 800, img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80' },
+            { id: 'R3', name: 'Traditional Lanna Cuisine Chiang Mai', location: 'เชียงใหม่', price: 500, img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80' }
+        ];
+
+        let myBookings = JSON.parse(localStorage.getItem('restaurant_bookings')) || [];
+        let selectedItem = null;
+
+        const today = new Date();
+        document.getElementById('search-date').valueAsDate = today;
+
+        function updateDestinations() {
+            const select = document.getElementById('search-dest');
+            select.innerHTML = '<option value="">-- ทุกย่าน --</option>';
+            const locations = [...new Set(restaurantsData.map(i => i.location))];
+            locations.forEach(loc => {
+                select.innerHTML += `<option value="${loc}">${loc}</option>`;
+            });
+        }
+
+        function handleSearch() {
+            const filter = document.getElementById('search-dest').value;
+            const container = document.getElementById('search-results');
+            let items = filter ? restaurantsData.filter(i => i.location === filter) : restaurantsData;
+
+            container.innerHTML = '';
+            if (items.length === 0) {
+                container.innerHTML = `<p class="col-span-3 text-center text-gray-500 py-8">ไม่พบร้านอาหาร</p>`;
+                return;
+            }
+
+            items.forEach(item => {
+                container.innerHTML += `
+                    <div class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition border flex flex-col justify-between">
+                        <div>
+                            <img src="${item.img}" class="w-full h-48 object-cover">
+                            <div class="p-4 space-y-1">
+                                <span class="text-xs bg-orange-100 text-orange-800 font-semibold px-2.5 py-0.5 rounded-full">${item.location}</span>
+                                <h3 class="font-bold text-lg">${item.name}</h3>
+                                <p class="text-orange-600 font-bold text-xl">฿${item.price.toLocaleString()} <span class="text-xs text-gray-500 font-normal">/ มัดจำต่อท่าน</span></p>
+                            </div>
+                        </div>
+                        <div class="p-4 pt-0">
+                            <button onclick="openPaymentModal('${item.id}', '${item.name}', ${item.price})" class="w-full bg-orange-600 hover:bg-orange-700 text-white font-semibold py-2 rounded-xl transition shadow">จองโต๊ะนี้</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function openPaymentModal(id, name, price) {
+            const date = document.getElementById('search-date').value;
+            const qty = document.getElementById('search-qty').value;
+            const total = price * qty;
+
+            selectedItem = { id, name, price, date, qty, total };
+
+            document.getElementById('modal-details').innerHTML = `
+                <p><b>ร้านอาหาร:</b> ${name}</p>
+                <p><b>วันที่ไปทาน:</b> ${date}</p>
+                <p><b>จำนวนคน:</b> ${qty} ท่าน</p>
+                <p class="text-base font-bold text-orange-600 pt-2 border-t">ยอดมัดจำรวม: ฿${total.toLocaleString()}</p>
+            `;
+            document.getElementById('payment-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('payment-modal').classList.add('hidden');
+            selectedItem = null;
+        }
+
+        function confirmBooking() {
+            const name = document.getElementById('customer-name').value.trim();
+            if (!name) { alert('กรุณากรอกชื่อ'); return; }
+
+            const newBooking = {
+                bookingId: 'R-' + Math.floor(100000 + Math.random() * 900000),
+                customerName: name,
+                ...selectedItem,
+                timestamp: new Date().toLocaleString()
+            };
+
+            myBookings.unshift(newBooking);
+            localStorage.setItem('restaurant_bookings', JSON.stringify(myBookings));
+            updateBadge();
+            renderBookings();
+            closeModal();
+            alert('จองโต๊ะร้านอาหารสำเร็จ!');
+            switchTab('my-bookings');
+        }
+
+        function updateBadge() {
+            document.getElementById('booking-count').innerText = myBookings.length;
+        }
+
+        function renderBookings() {
+            const container = document.getElementById('bookings-list');
+            container.innerHTML = '';
+            if (myBookings.length === 0) {
+                container.innerHTML = `<div class="bg-white p-8 rounded-2xl shadow text-center text-gray-500">ยังไม่มีประวัติการจองโต๊ะร้านอาหาร</div>`;
+                return;
+            }
+
+            myBookings.forEach(b => {
+                container.innerHTML += `
+                    <div class="bg-white p-6 rounded-2xl shadow border flex justify-between items-center">
+                        <div>
+                            <span class="bg-green-100 text-green-800 text-xs font-bold px-2 py-0.5 rounded-full">ยืนยันแล้ว</span>
+                            <h3 class="font-bold text-lg mt-1">${b.name}</h3>
+                            <p class="text-sm text-gray-600">ผู้จอง: ${b.customerName} | วันที่: ${b.date} | จำนวน: ${b.qty} ท่าน</p>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-orange-600 font-bold text-xl">฿${b.total.toLocaleString()}</span>
+                            <br><button onclick="cancelBooking('${b.bookingId}')" class="text-red-500 text-xs font-semibold mt-1">ยกเลิก</button>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function cancelBooking(id) {
+            if (confirm('ยกเลิกการจองนี้?')) {
+                myBookings = myBookings.filter(b => b.bookingId !== id);
+                localStorage.setItem('restaurant_bookings', JSON.stringify(myBookings));
+                updateBadge();
+                renderBookings();
+            }
+        }
+
+        function switchTab(tab) {
+            const s = document.getElementById('tab-search');
+            const b = document.getElementById('tab-bookings');
+            if (tab === 'search') {
+                s.classList.remove('hidden'); b.classList.add('hidden');
+            } else {
+                s.classList.add('hidden'); b.classList.remove('hidden');
+            }
+        }
+
+        updateDestinations();
+        handleSearch();
+        updateBadge();
+    </script>
+</body>
+</html>
