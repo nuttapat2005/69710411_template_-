@@ -121,6 +121,50 @@ if (searchForm) {
 
 
 
+// คำสั่งสินค้า
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("JavaScript โหลดและทำงานเรียบร้อยแล้ว!");
+
+    // 1. ฟังก์ชันจำลองการโหลดเมนูมาใส่ใน div id="menu-container"
+    loadMenu();
+
+    // 2. ฟังก์ชันจัดการปุ่มสั่งซื้อสินค้า (เพิ่ม Event Click ให้กับปุ่มทั้งหมดที่มีคลาส btn-primary)
+    handleBuyButtons();
+});
+
+// ฟังก์ชันโหลดเมนู (ตัวอย่างการแทรก HTML ผ่าน JS)
+function loadMenu() {
+    const menuContainer = document.getElementById("menu-container");
+    if (menuContainer) {
+        // คุณสามารถเปลี่ยนเป็น Navbar หรือเมนูที่ต้องการได้
+        menuContainer.innerHTML = `
+            
+        `;
+    }
+}
+
+// ฟังก์ชันจัดการคลิกปุ่มสั่งซื้อ (แบบยืดหยุ่น หาปุ่ม .btn-primary ทั้งหน้า)
+function handleBuyButtons() {
+    const buyButtons = document.querySelectorAll(".btn-primary");
+
+    buyButtons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+
+            // ค้นหาการ์ดสินค้าที่ใกล้ที่สุด หรือดึงข้อมูลจากปุ่มโดยตรง
+            const card = this.closest(".col-sm-3") || this.parentElement;
+            
+            // ดึงชื่อสินค้าและราคา (ตรวจสอบว่ามี h4 และ .text-danger จริงไหม)
+            const h4Tag = card.querySelector("h4");
+            const priceTag = card.querySelector(".text-danger");
+
+            const productName = h4Tag ? h4Tag.innerText : "สินค้า";
+            const productPrice = priceTag ? priceTag.innerText : "0";
+
+            alert(`คุณได้เลือกสั่งซื้อ: ${productName}\nราคา: ${productPrice} บาท\n(เพิ่มลงตะกร้าเรียบร้อยแล้ว!)`);
+        });
+    });
+}
 
 
 

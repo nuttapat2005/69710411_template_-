@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!--ด้านบนหัว-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <img class="sc-1tis04a-1 eAQann" itemprop="logo" src="img/gg3.png" alt="logo" width="120">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <!--menu-->
+
+            </button>
+            <!--menu-->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <form class="d-flex" role="search" id="searchForm">
+                    <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                 <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="adout.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Contact ">Contact</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Services / Products</a>
+
+                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="login.html">เข้าสู่ระบบ</a></li>
+                            <li><a class="dropdown-item" href="hotel.html">จองที่พัก</a></li>
+                            <li><a class="dropdown-item" href="flight.html">จองตั๋วเครื่องบิน</a></li>
+                            <li><a class="dropdown-item" href="restaurant.html">จองร้านอาหาร</a></li>
+                            <li><a class="dropdown-item" href="review.html">รีวิว</a></li>
+                            <li><a class="dropdown-item" href="product3.html">สินค้า</a></li>
+
+
+
+                        </ul>
+                    </li>
+
+
+
+            </div>
+        </div>
+    </nav>
+    <!--เนื้อหา-->
+    
+       
+<!-- Review Section -->
+<section class="max-w-6xl mx-auto px-4 my-16">
+
+   <!-- กล่องสำหรับรับค่าการ์ดผลลัพธ์ที่จะแสดงขึ้นมา -->
+<div id="search-results" class="container my-4"></div>
+
+
+            
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+    <!-- หัวข้อส่วนรีวิว พร้อมเส้นตกแต่ง -->
+    <div class="text-center mb-12">
+        
+        <h2 class="text-3xl font-extrabold text-gray-800 mt-3">ความประทับใจจากผู้ใช้จริง</h2>
+        <p class="text-gray-500 mt-2 max-w-lg mx-auto">อ่านรีวิวและประสบการณ์จริงจากนักเดินทางที่ไว้วางใจใช้บริการจองกับเรา</p>
+    </div>
+
+    <!-- Grid สำหรับแสดง Card รีวิว -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+     <br>
+<br>   
+        <!-- รีวิวที่ 1 -->
+        <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between relative">
+            <div class="absolute top-6 right-6 text-emerald-100 text-4xl font-serif select-none">“</div>
+            <div>
+                <!-- คะแนนดาว -->
+                <div class="flex text-amber-400 mb-4 space-x-1">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 relative z-10">
+                    "บริการจองโรงแรมสะดวกและรวดเร็วมากครับ ไปถึงที่พักห้องพักตรงปก วิวสวย บรรยากาศดีสุดๆ ประทับใจมากครับ ไว้จะกลับมาใช้บริการจองตั๋วเครื่องบินอีกแน่นอน!"
+                </p>
+            </div>
+            <div class="flex items-center pt-4 border-t border-gray-50">
+                <div class="w-11 h-11 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-full flex items-center justify-center font-bold shadow-sm mr-3">
+                    ส
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm">คุณสมชาย ใจดี</h5>
+                    <span class="text-xs text-emerald-600  font-medium">จองโรงแรม Grand Luxury Bangkok</span>
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+        <!-- รีวิวที่ 2 -->
+        <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between relative">
+            <div class="absolute top-6 right-6 text-emerald-100 text-4xl font-serif select-none">“</div>
+            <div>
+                <!-- คะแนนดาว -->
+                <div class="flex text-amber-400 mb-4 space-x-1">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 relative z-10">
+                    "จองตั๋วเครื่องบินไปภูเก็ต ระบบใช้งานง่ายมาก ค้นหาข้อมูลไว ราคาดีงาม ไม่มีสะดุดเลยค่ะ ทีมงานซัพพอร์ตดีเยี่ยม แนะนำเว็บไซต์นี้เลยค่ะสำหรับคนชอบเที่ยว"
+                </p>
+            </div>
+            <div class="flex items-center pt-4 border-t border-gray-50">
+                <div class="w-11 h-11 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-full flex items-center justify-center font-bold shadow-sm mr-3">
+                    ม
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm">คุณเมย์ ภาวิณี</h5>
+                    <span class="text-xs text-emerald-600 font-medium">จองตั๋วเครื่องบิน กรุงเทพฯ ➔ ภูเก็ต</span>
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+        <!-- รีวิวที่ 3 -->
+        <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between relative">
+            <div class="absolute top-6 right-6 text-emerald-100 text-4xl font-serif select-none">“</div>
+            <div>
+                <!-- คะแนนดาว -->
+                <div class="flex text-amber-400 mb-4 space-x-1">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 relative z-10">
+                    "จองร้านอาหารโอมากาเสะผ่านระบบ สะดวกมาก ไม่ต้องรอนานไปถึงได้ที่นั่งเลย อาหารอร่อย พนักงานบริการประทับใจ เว็บไซต์ใช้งานง่ายมากๆ ครับ"
+                </p>
+            </div>
+            <div class="flex items-center pt-4 border-t border-gray-50">
+                <div class="w-11 h-11 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-full flex items-center justify-center font-bold shadow-sm mr-3">
+                    ก
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm">คุณกอล์ฟ ธนวัฒน์</h5>
+                    <span class="text-xs text-emerald-600 font-medium">จองร้านอาหาร Omakase Bangkok</span>
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+        <!-- รีวิวที่ 4 -->
+        <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between relative">
+            <div class="absolute top-6 right-6 text-emerald-100 text-4xl font-serif select-none">“</div>
+            <div>
+                <!-- คะแนนดาว -->
+                <div class="flex text-amber-400 mb-4 space-x-1">
+                    <span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 relative z-10">
+                    "จองร้านอาหารผ่านระบบ สะดวกมาก ไม่ต้องรอนานไปถึงได้ที่นั่งเลย อาหารอร่อย พนักงานบริการดีมากๆ ครับ"
+                </p>
+            </div>
+            <div class="flex items-center pt-4 border-t border-gray-50">
+                <div class="w-11 h-11 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-full flex items-center justify-center font-bold shadow-sm mr-3">
+                    ก
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm">คุณก้องภพ</h5>
+                    <span class="text-xs text-emerald-600 font-medium">จองร้านอาหาร Omakase Bangkok</span>
+                </div>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+
+    <!-- รีวิวที่ 5 -->
+        <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between relative">
+            <div class="absolute top-6 right-6 text-emerald-100 text-4xl font-serif select-none">“</div>
+            <div>
+                <!-- คะแนนดาว -->
+                <div class="flex text-amber-400 mb-4 space-x-1">
+                    <span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 relative z-10">
+                    "บริการจองโรงแรมสะดวกและรวดเร็วมากครับ ไปถึงที่พักห้องพักตรงปก วิวสวย บรรยากาศดีสุดๆ มากครับ ไว้จะกลับมาใช้บริการอีกแน่นอน!"
+                </p>
+            </div>
+            <div class="flex items-center pt-4 border-t border-gray-50">
+                <div class="w-11 h-11 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-full flex items-center justify-center font-bold shadow-sm mr-3">
+                    ส
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm">คุณณัฐภัทร</h5>
+                    <span class="text-xs text-emerald-600 font-medium">จองโรงแรม Grand Luxury Bangkok</span>
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+ <!-- รีวิวที่ 6 -->
+        <div class="bg-white p-6 rounded-3xl shadow-sm hover:shadow-md transition duration-300 border border-gray-100 flex flex-col justify-between relative">
+            <div class="absolute top-6 right-6 text-emerald-100 text-4xl font-serif select-none">“</div>
+            <div>
+                <!-- คะแนนดาว -->
+                <div class="flex text-amber-400 mb-4 space-x-1">
+                    <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6 relative z-10">
+                    "จองร้านอาหารโอมากาเสะผ่านระบบ สะดวกมาก ไม่ต้องรอนานไปถึงได้ที่นั่งเลย อาหารอร่อย พนักงานบริการประทับใจ เว็บไซต์ใช้งานง่ายมากๆ ครับ"
+                </p>
+            </div>
+            <div class="flex items-center pt-4 border-t border-gray-50">
+                <div class="w-11 h-11 bg-gradient-to-tr from-emerald-500 to-teal-400 text-white rounded-full flex items-center justify-center font-bold shadow-sm mr-3">
+                    ก
+                </div>
+                <div>
+                    <h5 class="font-bold text-gray-800 text-sm">คุณกอล์ฟ ชนกานต์</h5>
+                    <span class="text-xs text-emerald-600 font-medium">จองร้านอาหาร Omakase Bangkok</span>
+                </div>
+            </div>
+        </div>
+<br>
+<br>
+
+
+</section>
+    
+
+    
+<!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+    <!-- * *                               SB Forms JS                               * *-->
+    <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+    <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+
+</body>
+</html>

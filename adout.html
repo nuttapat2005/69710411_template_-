@@ -39,12 +39,12 @@
                             Services / Products</a>
 
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="login.html">Login</a></li>
+                            <li><a class="dropdown-item" href="login.html">เข้าสู่ระบบ</a></li>
                             <li><a class="dropdown-item" href="hotel.html">จองที่พัก</a></li>
                             <li><a class="dropdown-item" href="flight.html">จองตั๋วเครื่องบิน</a></li>
                             <li><a class="dropdown-item" href="restaurant.html">จองร้านอาหาร</a></li>
-                            <li><a class="dropdown-item" href="#">Register</a></li>
-                            <li><a class="dropdown-item" href="#">Register</a></li>
+                            <li><a class="dropdown-item" href="review.html">รีวิว</a></li>
+                            <li><a class="dropdown-item" href="product3.html">สินค้า</a></li>
 
 
 
@@ -55,6 +55,21 @@
             </div>
         </div>
     </nav>
+
+    <!-- กล่องสำหรับรับค่าการ์ดผลลัพธ์ที่จะแสดงขึ้นมา -->
+<div id="search-results" class="container my-4"></div>
+
+
+     <!-- Masthead-->
+    <header class="masthead2">
+        <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+            <div class="d-flex justify-content-center w-100">
+            </div>
+        </div>
+    </header>
+
+
+
     <!--เนื้อหา-->
     <section class="about-section text-center" id="about">
         <div class="container px-4 px-lg-5">
@@ -101,9 +116,10 @@
                 <div class="bg-black text-center h-100 project">
                     <div class="d-flex h-100">
                         <div class="project-text w-100 my-auto text-center text-lg-left">
-                            <h4 class="text-white">Misty</h4>
-                            <p class="mb-0 text-white-50">An example of where you can put an image of a project, or
-                                anything else, along with a description.</p>
+                            <h4 class="text-white">หมอก</h4>
+                            <p class="mb-0 text-white-50">กลุ่มละอองน้ำที่ลอยตัวอยู่ในระดับต่ำเหนือพื้นดิน
+                                ซึ่งเมฆบางครั้งก็ถูกพิจารณาว่าเป็นส่วนหนึ่งของหมอก ตัวอย่างเช่น เมฆที่เคลื่อนตัวใน อากาศ
+                                ระดับสูงจะไม่ถูกพิจารณาว่าเป็นหมอก</p>
                         </div>
                     </div>
                 </div>
@@ -116,9 +132,10 @@
                 <div class="bg-black text-center h-100 project">
                     <div class="d-flex h-100">
                         <div class="project-text w-100 my-auto text-center text-lg-right">
-                            <h4 class="text-white">Mountains</h4>
-                            <p class="mb-0 text-white-50">Another example of a project with its respective description.
-                                These sections work well responsively as well!</p>
+                            <h4 class="text-white">ภูเขา</h4>
+                            <p class="mb-0 text-white-50">ภูเขา ทิวเขา หรือเทือกเขาหมายถึง ลักษณะภูมิประเทศ ที่มีความสูงตั้งแต่ 600
+                                เมตรขึ้นไปจากพื้นที่บริเวณรอบ ซึ่งมีลักษณะคล้ายกับเนินเขา แต่ว่าเนินเขานั้น จะมีพื้นที่สูงจากบริเวณรอบ ๆ ประมาณ 150
+                                แต่ไม่เกิน 600 เมตร ภูเขาสามารถแบ่ง เป็นประเภทต่างๆ</p>
                         </div>
                     </div>
                 </div>
@@ -126,6 +143,64 @@
         </div>
         </div>
 
+
+
+
+        </div>
+    </div>
+
+
+
+    <div class="container my-5">
+        <h2 class="text-center text-white mb-4">สถานที่ท่องเที่ยวแนะนำ</h2>
+
+        <!-- แถวสำหรับเก็บบัตรคำ (Row) -->
+        <div class="row">
+
+            <!-- Card ที่ 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/p10.webp" class="card-img-top" alt="สถานที่ 1">
+                    <div class="card-body">
+                        <h5 class="card-title">สถานที่ท่องเที่ยว 1</h5>
+                        <p class="card-text">รายละเอียดสั้นๆ เกี่ยวกับสถานที่ท่องเที่ยวแห่งนี้ บรรยากาศดี
+                            เหมาะแก่การพักผ่อน</p>
+                        <a href="https://www.wongnai.com/trips/koh-kood-3-days-2-nights"
+                            class="btn btn-success">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card ที่ 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/p1.jpg" class="card-img-top" alt="สถานที่ 2">
+                    <div class="card-body">
+                        <h5 class="card-title">สถานที่ท่องเที่ยว 2</h5>
+                        <p class="card-text">รายละเอียดสั้นๆ เกี่ยวกับสถานที่ท่องเที่ยวแห่งนี้ มีมุมถ่ายรูปสวยๆ เพียบ
+                        </p>
+                        <a href="https://www.wongnai.com/trips/phuthapbuek-petchaboon"
+                            class="btn btn-success">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card ที่ 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/p5.webp" class="card-img-top" alt="สถานที่ 3">
+                    <div class="card-body">
+                        <h5 class="card-title">สถานที่ท่องเที่ยว 3</h5>
+                        <p class="card-text">รายละเอียดสั้นๆ เกี่ยวกับสถานที่ท่องเที่ยวแห่งนี้ อาหารอร่อย
+                            การเดินทางสะดวก</p>
+                        <a href="https://www.wongnai.com/trips/howto-reach-phu-kradueng"
+                            class="btn btn-success">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
     </section>

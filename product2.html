@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แสดงข้อมูลสินค้า</title>
+    <!-- เชื่อมต่อ Bootstrap CSS (สำหรับจัด Grid และความสวยงามเบื้องต้น) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- เชื่อมต่อ Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- เชื่อมต่อไฟล์ CSS แยกของคุณ -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ส่วนแสดงเมนู (ถ้ามี JavaScript ควบคุม) -->
+    <div id="menu-container"></div>
+
+     <div class="container text-center my-4">
+        <h3>แสดงข้อมูลสินค้า</h3>
+        <div class="row">
+            
+            <!-- สินค้าชิ้นที่ 1 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p1.jpg" class="img-fluid rounded product-img" alt="Reece James">
+                <h4>Reece James</h4>
+                <p>ราคา <span class="text-danger">30,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 2 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p2.jpg" class="img-fluid rounded product-img" alt="Cole Palmer">
+                <h4>Cole Palmer</h4>
+                <p>ราคา <span class="text-danger">130,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 3 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p3.jpg" class="img-fluid rounded product-img" alt="João Pedro">
+                <h4>João Pedro</h4>
+                <p>ราคา <span class="text-danger">97,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 4 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p4.jpg" class="img-fluid rounded product-img" alt="Levi Colwill">
+                <h4>Levi Colwill</h4>
+                <p>ราคา <span class="text-danger">65,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 1 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p1.jpg" class="img-fluid rounded product-img" alt="Reece James">
+                <h4>Reece James</h4>
+                <p>ราคา <span class="text-danger">30,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 2 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p2.jpg" class="img-fluid rounded product-img" alt="Cole Palmer">
+                <h4>Cole Palmer</h4>
+                <p>ราคา <span class="text-danger">130,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 3 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p3.jpg" class="img-fluid rounded product-img" alt="João Pedro">
+                <h4>João Pedro</h4>
+                <p>ราคา <span class="text-danger">97,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+            <!-- สินค้าชิ้นที่ 4 -->
+            <div class="col-sm-3 mb-3 p-3 product-card">
+                <img src="img/p4.jpg" class="img-fluid rounded product-img" alt="Levi Colwill">
+                <h4>Levi Colwill</h4>
+                <p>ราคา <span class="text-danger">65,000,000</span> บาท</p>
+                <a href="#" class="btn btn-primary" role="button">
+                    <i class="bi bi-house-add-fill"></i> สั่งซื้อ
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <div class="container my-5">
+        <h2 class="text-center text-white mb-4">สถานที่ท่องเที่ยวแนะนำ</h2>
+
+        <!-- แถวสำหรับเก็บบัตรคำ (Row) -->
+        <div class="row">
+
+            <!-- Card ที่ 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/p10.webp" class="card-img-top" alt="สถานที่ 1">
+                    <div class="card-body">
+                        <h5 class="card-title">สถานที่ท่องเที่ยว 1</h5>
+                        <p class="card-text">รายละเอียดสั้นๆ เกี่ยวกับสถานที่ท่องเที่ยวแห่งนี้ บรรยากาศดี
+                            เหมาะแก่การพักผ่อน</p>
+                        <a href="https://www.wongnai.com/trips/koh-kood-3-days-2-nights"
+                            class="btn btn-primary">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card ที่ 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/p1.jpg" class="card-img-top" alt="สถานที่ 2">
+                    <div class="card-body">
+                        <h5 class="card-title">สถานที่ท่องเที่ยว 2</h5>
+                        <p class="card-text">รายละเอียดสั้นๆ เกี่ยวกับสถานที่ท่องเที่ยวแห่งนี้ มีมุมถ่ายรูปสวยๆ เพียบ
+                        </p>
+                        <a href="https://www.wongnai.com/trips/phuthapbuek-petchaboon"
+                            class="btn btn-primary">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card ที่ 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="img/p5.webp" class="card-img-top" alt="สถานที่ 3">
+                    <div class="card-body">
+                        <h5 class="card-title">สถานที่ท่องเที่ยว 3</h5>
+                        <p class="card-text">รายละเอียดสั้นๆ เกี่ยวกับสถานที่ท่องเที่ยวแห่งนี้ อาหารอร่อย
+                            การเดินทางสะดวก</p>
+                        <a href="https://www.wongnai.com/trips/howto-reach-phu-kradueng"
+                            class="btn btn-primary">ดูรายละเอียด</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Bootstrap JS (ถ้าจำเป็นต้องใช้) -->
+    <script src="https://cdn.jsdelivr.5/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
