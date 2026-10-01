@@ -56,13 +56,33 @@ window.addEventListener('DOMContentLoaded', event => {
 
 // === ระบบค้นหาและแสดงผลการ์ดแบบสมบูรณ์ ===
 const searchDatabase = [
+     // ---โรงแรม---
     { name: 'Grand Luxury Hotel Bangkok', type: 'โรงแรม', price: 2500, link: 'hotel.html', img: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=500&q=80' },
     { name: 'Sea Breeze Resort Phuket', type: 'โรงแรม', price: 4200, link: 'hotel.html', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80' },
-    
-    // --- เพิ่มข้อมูลใหม่ตรงนี้ได้เลย ---
-    { name: 'Bangkok ➔ Chiang Mai Flight', type: 'ตั๋วเครื่องบิน', price: 1200, link: 'flight.html', img: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=500&q=80' },
+    { name: 'Mountain View Chiang Mai', type: 'โรงแรม', price: 1800, link: 'hotel.html', img: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=500&q=80' },
+
+    // --- ตั๋วเครื่องบิน ---
+    { name: 'กรุงเทพ  ➔ ภูเก็ต', type: 'ตั๋วเครื่องบิน', price: 1250, link: 'flight.html', img: 'https://img.wongnai.com/p/800x0/2021/01/04/73764af2818646b6b7b39f35038ea83a.jpg' },
+    { name: 'กรุงเทพ  ➔ เชียงใหม่', type: 'ตั๋วเครื่องบิน', price: 1990, link: 'flight.html', img: 'https://img.wongnai.com/p/800x0/2020/12/03/50a00ed174cf49538892f2192961fd29.jpg' },
+    { name: 'กรุงเทพ  ➔ เชียงราย', type: 'ตั๋วเครื่องบิน', price: 2500, link: 'flight.html', img: 'https://img.wongnai.com/p/800x0/2021/01/05/2a926f0b160b4f4bb24fc501dc850d99.jpg' },
+
+
+     // --- ร้านอาหาร ---
     { name: 'SUSHI OMAKASE Bangkok', type: 'ร้านอาหาร', price: 1500, link: 'restaurant.html', img: 'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=500&q=80' },
-    { name: 'Sea Breeze Resort Phuket', type: 'โรงแรม', price: 4200, link: 'hotel.html', img: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=500&q=80' }
+    { name: 'Beachfront Seafood BBQ Phuket', type: 'ร้านอาหาร', price: 800, link: 'restaurant.html', img: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=80' },
+    { name: 'Traditional Lanna Cuisine Chiang Mai', type: 'ร้านอาหาร', price: 500, link: 'restaurant.html', img: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80' },
+
+    
+
+    // --- สินค้า ---
+    { name: 'ภูเขา', type: 'สินค้า', price: 1500000000 , link: 'product3.html', img: 'img/p1.jpg' },
+    { name: 'หิน', type: 'สินค้า', price: 1200000000, link: 'product3.html', img: 'https://img.wongnai.com/p/800x0/2020/12/08/9478b6fd60ab4dbca631ee2d619f5e24.jpg' },
+    { name: 'เรือ', type: 'สินค้า', price: 97000000, link: 'product3.html', img: 'img/p7.jpg' },
+    { name: 'พระพุทธรูป', type: 'สินค้า', price: 65000000, link: 'product3.html', img: 'img/p4.jpg' }
+
+
+
+
 
 ];
 
@@ -107,7 +127,7 @@ if (searchForm) {
                                 <h5 class="card-title fw-bold">${item.name}</h5>
                                 <p class="text-success fw-bold">ราคาเริ่มต้น: ฿${item.price.toLocaleString()}</p>
                             </div>
-                            <a href="${item.link}" class="btn btn-outline-primary w-100 mt-3 rounded-pill">ไปหน้าจอง</a>
+                            <a href="${item.link}" class="btn btn-outline-primary w-100 mt-3 rounded-pill">ไปหน้าจองหริอซื้อสินค้า</a>
                         </div>
                     </div>
                 </div>
